@@ -5,29 +5,29 @@ import { fifaData } from './fifa.js';
 // /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 // Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
-// //(a) Home Team name for 2014 world cup final
-// fifaData.filter((game) => {
-//     if (game.Year === 2014 && game.Stage === "Final") console.log(game["Home Team Name"]);
-// })
-// //(b) Away Team name for 2014 world cup final
-// fifaData.filter((game) => {
-//     if (game.Year === 2014 && game.Stage === "Final") console.log(game["Away Team Name"]);
-// })
-// //(c) Home Team goals for 2014 world cup final
-// fifaData.filter((game) => {
-//     if (game.Year === 2014 && game.Stage === "Final") console.log(game["Home Team Goals"]);
-// })
-// //(d) Away Team goals for 2014 world cup final
-// fifaData.filter((game) => {
-//     if (game.Year === 2014 && game.Stage === "Final") console.log(game["Away Team Goals"]);
-// })
-// //(e) Winner of 2014 world cup final */
-// fifaData.filter((game) => {
-//     if (game.Year === 2014 && game.Stage === "Final") {
-//         if (game["Home Team Goals"] > game["Away Team Goals"]) console.log(game["Home Team Name"]);
-//         else console.log(game["Away Team Name"]);
-//     }
-// })
+//(a) Home Team name for 2014 world cup final
+fifaData.filter(game => {
+    if (game.Year === 2014 && game.Stage === "Final") console.log(game["Home Team Name"]);
+})
+//(b) Away Team name for 2014 world cup final
+fifaData.filter(game => {
+    if (game.Year === 2014 && game.Stage === "Final") console.log(game["Away Team Name"]);
+})
+//(c) Home Team goals for 2014 world cup final
+fifaData.filter(game => {
+    if (game.Year === 2014 && game.Stage === "Final") console.log(game["Home Team Goals"]);
+})
+//(d) Away Team goals for 2014 world cup final
+fifaData.filter(game => {
+    if (game.Year === 2014 && game.Stage === "Final") console.log(game["Away Team Goals"]);
+})
+//(e) Winner of 2014 world cup final */
+fifaData.filter(game => {
+    if (game.Year === 2014 && game.Stage === "Final") {
+        if (game["Home Team Goals"] > game["Away Team Goals"]) console.log(game["Home Team Name"]);
+        else console.log(game["Away Team Name"]);
+    }
+})
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -38,9 +38,7 @@ hint - you should be looking at the stage key inside of the objects
 */
 
 function getFinals(gameData) {
-   return gameData.filter((game) => {
-        if (game.Stage === "Final") return game;
-   })
+   return gameData.filter(game => game.Stage === "Final");
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -83,7 +81,7 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 function getWinnersByYear(gameData, getYears, getWinners) {
-    const finals = (data) => { return data.filter((game) => { if (game.Stage === "Final") return game;}) };
+    const finals = data => {return gameData.filter(game => game.Stage === "Final")}
     let strings = [];
     for (let i = 0; i < finals(gameData).length; i++)
         strings.push(`In ${getYears(gameData, finals)[i]}, ${getWinners(gameData, finals)[i]} won the world cup!`)
